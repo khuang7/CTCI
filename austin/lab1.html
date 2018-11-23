@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.cse.unsw.edu.au/~cs2511/labs/lab01/lab01.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README.md</title>
+  <link rel="stylesheet" href="./lab1_files/style.css">
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="lab-01-due-week-01-sunday-1159-pm">Lab 01 (Due: Week 01, Sunday, 11:59 pm)</h1>
+<h2 id="aim">Aim</h2>
+<ul>
+<li>Become familiar with course practices for lab/assignment release</li>
+<li>Learn how to use git and GitHub effectively</li>
+<li>Learn how to create, compile and run a java program from the command-line</li>
+<li>Gain familiarity with java development using Eclipse IDE</li>
+<li>Introduce simple Java exercises based on topics covered in week 1 (java basics - declaring, initialising and using variables, control-flow, arrays and strings)</li>
+</ul>
+<h1 id="setup-please-make-sure-these-tasks-are-completed-prior-to-your-lab-in-week-1">Setup (Please make sure these tasks are completed prior to your lab in week 1)</h1>
+<h2 id="sign-up-for-github">1. Sign up for GitHub</h2>
+<p>Github is a version control platform (like Bitbucket or GitLab) that uses git. It is a great way for developers to collaborate with one another. It will be the primary source of starter code distribution as well as where you will submit labs/assignments for automarking before being marked by your tutors. You will have to create an account here before you can start. Getting familiar with Github and how to use is is the aim of this lab.</p>
+<p><strong>Summary:</strong></p>
+<ul>
+<li>I DON’T have an account on Github: Create an account at Github using your student (<a href="mailto:zID@student.unsw.edu.au">zID@student.unsw.edu.au</a>) email.
+<ul>
+<li>
+<p><strong>Make sure to verify your email address. If you do not get an email straight away, go to <a href="https://github.com/settings/emails">https://github.com/settings/emails</a> and click resend</strong></p>
+<p><img src="./lab1_files/email_validate.png" alt="email validation"></p>
+</li>
+</ul>
+</li>
+<li>I ALREADY have an account on Github: Continue to the next step.</li>
+</ul>
+<h2 id="cs2511-github-organisation-membership">2. CS2511 Github Organisation Membership</h2>
+<p>A Github organisation is a way that people can work together and have group ownership of repositories. You will be added to our organisation where we will release the starter code and solutions.</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Follow the link and sign in. First with your cse credentials (if the <em>Authentication required</em> alert box is shown), then click the <strong>Sign in with Github</strong> button and use your Github credentials <a href="https://cgi.cse.unsw.edu.au/~cs2511/github/run.cgi/login">https://cgi.cse.unsw.edu.au/~cs2511/github/run.cgi/login</a></li>
+<li>Click on the <strong>Setup</strong> button and complete the instructions on the page (should be adding student email and registering for education pack)</li>
+<li>You will have to verify your student email as well before continuing onto the student education pack. If a verification email was not sent automatically, go to <a href="https://github.com/settings/emails">https://github.com/settings/emails</a> and click resend (as in the above image)</li>
+</ol>
+<h2 id="add-your-ssh-key">3. Add your ssh key</h2>
+<p>There are two ways to authenticate with Github when you are working on your own machine:</p>
+<ol>
+<li>Use your username and password everytime</li>
+<li>Authenticate using your SSH key which effectively links a certain machine to Github</li>
+</ol>
+<p>Option 1 can get quite tedious when working consistently so we will be using the second option. Open up a terminal and run the following commands in terminal (use the email you have used for GitHub):</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li><code>ssh-keygen -t rsa -C "github_email@example.com"</code></li>
+<li>Hit Enter 3 times to accept default location and skip the password creation step. (You can <strong>ignore</strong> the output of this command)</li>
+<li><code>cat ~/.ssh/id_rsa.pub</code></li>
+<li>Copy the entire output of the above command, including the <em>ssh-rsa</em> at the start</li>
+<li>Go to <a href="https://github.com/settings/keys">https://github.com/settings/keys</a> and click <strong>New SSH Key</strong></li>
+<li>Enter your name as the title and paste the key (copied in the above step) into the text field. It should look something like below<br>
+<img src="./lab1_files/new_key.png" alt="enter key"></li>
+</ol>
+<p><strong>NOTE:</strong> You will have to repeat this process if you change machines.</p>
+<h1 id="week-01-lab-instructions">Week 01 Lab Instructions:</h1>
+<p>This lab must be completed and solution must be uploaded to Github by Sunday, 11:59 pm, week 01. Tutors will check the time-stamp, when the lab is marked in week02 lab session. Tasks in this lab must be completed individually.</p>
+<h1 id="task-1---github-exercises-10-marks">Task 1 - GitHub Exercises (10 marks)</h1>
+<h2 id="install-git">0. Install git</h2>
+<p>Throughout the course you will need to be comfortable with git. It comes pre-installed on most linux releases and is already installed on the CSE machines. To check if git is installed on your local machine use the command</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> status
+</code></pre>
+<p>If it is installed you will see something like</p>
+<blockquote>
+<p>fatal: Not a git repository (or any of the parent directories):</p>
+</blockquote>
+<p>If you do not have git installed, you will see something like</p>
+<blockquote>
+<p>bash: git: command not recognized</p>
+</blockquote>
+<p>If this is the case, you will have to set it up using the following instructions</p>
+<ul>
+<li><strong>Linux</strong> - Follow instructions at <a href="https://git-scm.com/download/linux">https://git-scm.com/download/linux</a></li>
+<li><strong>Mac</strong> - <code>brew install git</code></li>
+</ul>
+<p>We also have to configure the installation. Instructions on how to do this are in the summary section.</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Try <code>git status</code> to check whether git is installed
+<ul>
+<li>If not, follow one of the above instructions depending on your OS</li>
+</ul>
+</li>
+<li>Configure git if you have not used it before with the following commands (including the quotes)</li>
+</ol>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"github_email@example.com"</span>
+</code></pre>
+<h2 id="clone-your-first-repo">1. Clone your first repo</h2>
+<p>Cloning a <strong>repo</strong> (a repo is just a directory that is linked with git) is how the codebase is linked from GitHub to your local computer so changes you make can be saved and shared with others. It is the final step before you can start making changes and contributing. A repo can be cloned at any time by someone who has access, so they can start working whenever they want. When a repo is cloned, all code that is uploaded on the server is copied to a desired location on your local machine.</p>
+<p>In this course, starter code will be distributed through <a href="https://cgi.cse.unsw.edu.au/~cs2511/18s2/github/run.cgi/">https://cgi.cse.unsw.edu.au/~cs2511/18s2/github/run.cgi/</a>. As labs get released, the dropdown menu will populate with starter code options. When you select one and the starter code will be imported to your local github account.</p>
+<p>This is the process you will follow every lab to get your starter code.</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Go to <a href="https://cgi.cse.unsw.edu.au/~cs2511/18s2/github/run.cgi/">https://cgi.cse.unsw.edu.au/~cs2511/18s2/github/run.cgi/</a> and got to the Labs tab.</li>
+<li>Select lab01 and click <strong>Import</strong></li>
+<li>Follow the link that is shown in the green banner that is flashed at the top of the screen to go to the place where the repo has been imported</li>
+<li>Click on the Clone or download button.<br>
+<img src="./lab1_files/buttons.png" alt="Click the Green Button"></li>
+<li>If the title for the dropdown box is <em>Clone with HTTPS</em> click on the Use SSH link on the right. The box should look like the below<br>
+<img src="./lab1_files/clone.png" alt="enter image description here"></li>
+<li>Copy the link in the text box</li>
+<li>Open a Terminal and navigate to the folder you want the lab to be in</li>
+<li><code>git clone [link]</code> (Replace [link] with the copied link from above step)</li>
+<li>Type <code>ls</code> to ensure the folder has been copied correctly</li>
+<li><code>cd [repo_name]</code> to navigate into the cloned repo</li>
+<li>Type <code>ls</code> again to see the copied files.</li>
+</ol>
+<h2 id="make-your-first-commit">2. Make your first commit</h2>
+<p>Now that you have cloned the repo, you are ready to work on the codebase locally.</p>
+<p>A commit is an update of the remote (on the GitHub’s server) state of the repository. It saves changes that you have made and can be given a message to describe those changes. A good use of git involves a lot of commits with detailed messages.</p>
+<p>Before you can commit, you have to do what is called staging your changes, which effectively tells git what changes you actually want to commit and what changes you don’t at the moment.</p>
+<p>Commits are often followed by pushing which is how git actually uploads your commits to the remote server.</p>
+<p>The command to commit and push are as follows:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> add <span class="token punctuation">[</span>files_to_commit<span class="token punctuation">]</span> <span class="token comment"># Stage</span>
+<span class="token function">git</span> commit -m<span class="token string">"Detailed message describing the changes"</span> <span class="token comment"># Commit</span>
+<span class="token function">git</span> push <span class="token comment"># Push</span>
+</code></pre>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Add a new file called <code>HelloWorld.java</code> in the repo directory</li>
+<li>Add the following lines of code to the file using your favourite text editor and save.</li>
+</ol>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Welcome to COMP2511!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>Go back to your terminal and enter the following commands:</li>
+</ol>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> add HelloWorld.java
+<span class="token function">git</span> commit -m <span class="token string">"Created first java program HelloWorld.java"</span>
+<span class="token function">git</span> push
+</code></pre>
+<ol start="4">
+<li><strong>MAKE SURE YOU UNDERSTAND THE PURPOSE OF EACH OF THE 3 ABOVE COMMANDS!</strong> If you are unsure about any of them, ask your tutor.</li>
+<li>Go back to GitHub and confirm that your changes have been pushed to the server.</li>
+</ol>
+<h2 id="do-your-first-pull">3. Do your first pull</h2>
+<p>Usually when you are using git, it is in a team. That means that you will not be the only one who is making the changes. If someone else makes a change and pushes it to the server, your local repo will not have the most up to date version of the files. Luckily, git makes it easy to update our local copy with the <code>git pull</code> command.</p>
+<p>This command checks the remote server that your local repo is linked to and makes sure that all of your files are up to date. This ensures that you don’t accidentally do things like implement the same thing someone else has already done and also lets you use other people’s work (e.g. new functions) when developing.</p>
+<p>Pulling regularly is one of the <strong>most important</strong> practices in git!</p>
+<p>Unfortunately, at the moment you are just working individually. But GitHub still gives us a nice way to practice a <code>git pull</code>.</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>View your repo on GitHub. (The same link as step 1 in section 1 of the Laboratory activities)</li>
+<li>Click on the HelloWorld.java file</li>
+<li>Click the small ‘edit’ pencil icon in the top right</li>
+<li>Add a Java comment to the top of the file as shown below and click the ‘Commit Changes’ button at the bottom of the screen</li>
+</ol>
+<pre class=" language-java"><code class="prism  language-java"><span class="token comment">// A simple Java Program</span>
+</code></pre>
+<ol start="5">
+<li>This will have changed the HelloWorld.java file on the server but not on your local environment. To fetch these changes use the git pull command from your terminal</li>
+<li>Confirm that your version of HelloWorld.java now has the changes you made on the web page</li>
+</ol>
+<h2 id="create-your-first-branch">4. Create your first branch</h2>
+<p><strong>Branches</strong> are a vital part of git and are used so people can work on separate parts of the codebase and not interfere with one another or risk breaking a product that is visible to the client. Breaking something on one branch does not have an impact on any other.</p>
+<p>Good use of git will involve separating parts of the project that can be worked on separately and having them in their own feature branch. These branches can then be merged when they are ready.</p>
+<p>Useful commands for branches:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> checkout -b <span class="token punctuation">[</span>new_branch_name<span class="token punctuation">]</span> <span class="token comment"># Create a new branch and switch to it</span>
+<span class="token function">git</span> branch                        <span class="token comment"># List all current branches</span>
+<span class="token function">git</span> checkout <span class="token punctuation">[</span>branch_name<span class="token punctuation">]</span>        <span class="token comment"># Switch to an existing branch</span>
+</code></pre>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Make your new branch with: <code>git checkout -b first_new_branch</code></li>
+<li>List your branches to see that you have indeed swapped (use the above commands)</li>
+<li>Open the <code>HelloWorld.java</code> file and change the comment at the top of the file to Javadoc style comment as shown below:</li>
+</ol>
+<pre class=" language-java"><code class="prism  language-java"><span class="token comment">/**
+ * A simple java program that prints a hello world message to the console
+ *
+ */</span>
+</code></pre>
+<ol start="4">
+<li>Try to push your changes to the server using the commands you learnt in the <em>Make your first</em> commit section</li>
+<li>The above step should have given you the following error:</li>
+</ol>
+<blockquote>
+<p>fatal: The current branch first_new_branch has no upstream branch.<br>
+This means that the branch you tried to make a change on doesn’t exist on the server yet which makes sense because we only created it on our local machine.</p>
+</blockquote>
+<ol start="6">
+<li>To fix this, we need to add a copy of our branch on the server and link them up so git knows that this new branch maps to a corresponding branch on the server</li>
+</ol>
+<blockquote>
+<p>git push -u origin first_new_branch</p>
+</blockquote>
+<p><strong>Note:</strong> The final step above must be run on the 1st push to every new branch that you have created on your local machine. After you have run this once, you should go back to simply using git push</p>
+<h2 id="merge-your-two-branches">5. Merge your two branches</h2>
+<p>Merging branches is used to combine the work done on two different branches and is where gits magic really comes in. Git will compare the changes done on both branches and decide (based on what changes were done to what sections of the file and when) what to keep. Merges are most often done when a feature branch is complete and ready to be integrated with the master branch.</p>
+<p>Since we have finished all that we are going to do (and think there are no bugs) on our <em>first_new_branch</em> we can merge it back into master. It is a strong recommendation to have a version of the code that at least runs on master so people are not completely blocked. (DO NOT PUSH BROKEN CODE TO MASTER)</p>
+<p>Another recommendation is to merge master into your branch before merging your branch into master as this will ensure that any merge into master will go smoothly.</p>
+<p><strong>Commands for merging two branches</strong></p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> merge <span class="token punctuation">[</span>target<span class="token punctuation">]</span> <span class="token comment"># Merge the target branch into current</span>
+</code></pre>
+<p><strong>Note:</strong> A successful merge automatically uses the commits from the source branch. This means that the commits have already been made, you just need to push these to the server (<code>git push</code>)</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Switch back to the master branch using one of the commands fom the above section</li>
+<li>Merge in the changes you made in the other branch<br>
+<code>git merge first_new_branch</code></li>
+<li>Push the successful merge to the server to update the master branch on the server</li>
+</ol>
+<h2 id="engineer-a-merge-conflict">6. Engineer a merge conflict</h2>
+<p>Merge conflicts are the one necessary downside to git. Luckily, they can be avoided most of the time through good use of techniques like branches and regular commits, pushes and pulls. They happen when git cannot work out which particular change to a file you really want.</p>
+<p>For this step we will engineer one so you can get a taste of what they are, how they occur and how to fix them. This will be the LAST time you will want one. The process may seem involved but it is quite common when multiple people are working at a time.</p>
+<p><strong>Summary:</strong> (All commands have been presented above)</p>
+<ol>
+<li>Change line 3 of <code>HelloWorld.java</code> to</li>
+</ol>
+<pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Welcome to Java!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="2">
+<li>Add, commit and push your changes</li>
+<li>Switch to your <em>first_new_branch</em></li>
+<li>Change line 3 of <code>HelloWorld.java</code></li>
+</ol>
+<pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Welcome to merge conflicts!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="5">
+<li>Add, commit and push your changes</li>
+<li>Merge master into your current branch</li>
+<li>This sequence of steps should make a merge conflict at the third line of <code>HelloWorld.java</code></li>
+</ol>
+<h2 id="resolve-your-merge-conflict">7. Resolve your merge conflict</h2>
+<p>Resolving a merge conflict is as simple as editing the file normally, choosing what you want to have in the places git wasn’t sure.</p>
+<p>This is a very simple example, but merge conflicts can be large and in many different places across a file/repo. If possible, avoid merge conflicts. This can be done by regularly pulling from the server to update your local copy and by making your branches in such a way that they handle only one feature/section of the code.</p>
+<p>A merge conflict is physically shown in the file in which it occurs.<br>
+<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> marks the beginning of the conflicting changes made on the <strong>current</strong> (merged into) branch.<br>
+<code>=======</code> marks the beginning of the conflicting changes made on the <strong>target</strong> (merged) branch.<br>
+<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> marks the end of the conflict zone.</p>
+<p>E.g.</p>
+<pre><code>This line could be merged automatically.
+There was no change here either
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; current:sample.txt
+Merges are too hard. This change was on the 'merged into' branch
+=======
+Merges are easy. This change was made on the 'merged' branch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; target:sample.txt
+This is another line that could be merged automatically
+</code></pre>
+<p>This above example could be solved in many ways, one way would be to just use the changes made on the target branch and delete those made on the current branch. Once we have decided on this we just need to remove the syntax. The resolved file would be as follows</p>
+<pre><code>This line could be merged automatically.
+There was no change here either
+Merges are easy. This change was made on the 'merged' branch
+This is another line that could be merged automatically
+</code></pre>
+<p>We would then just commit the resolved file and the merge conflict is finished!</p>
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Open the <code>HelloWorld.java</code> file and decide which change you want to keep</li>
+<li>Remove the merge conflict syntax</li>
+<li>Add, commit and push the resolved merge conflict</li>
+</ol>
+<h2 id="testing">Testing</h2>
+<p>You can run the <code>test_git.sh</code> file to check whether you have done most of the git exercises. Make sure you checkout the master branch before running this script.</p>
+<h1 id="task-02---java-introduction-5-marks">Task 02 - Java Introduction (5 marks)</h1>
+<p>Create a new branch called <code>java_exercises</code> to complete the following exercises. Remember to merge back into master when you are finished.</p>
+<h2 id="compiling-and-running-your-first-java-program-at-the-command-line">1. Compiling and running your first Java program at the command line</h2>
+<ul>
+<li>At the terminal, to compile your java program HelloWorld.java invoke the Java compiler as follows: <code>javac HelloWorld.java</code></li>
+<li>Once, your program has compiled successfully into Java bytecode, you should be able to see a file <code>HelloWorld.class</code> Next, to interpret and run the java program, invoke the Java VM byte code interpreter as follows:<br>
+<code>java HelloWorld</code></li>
+<li>At the terminal, you should be able to see:<br>
+<code>Hello, Welcome to Java!</code> or <code>Hello, Welcome to merge conflicts!</code></li>
+</ul>
+<h2 id="setting-up-eclipse-on-lab-machines-and-importing-the-helloworld.java-1-mark">2. Setting up Eclipse on Lab Machines and importing the HelloWorld.java (1 mark)</h2>
+<p>From a terminal, execute <strong>eclipse</strong>: this should start up a version of eclipse in a new window – make sure it is Eclipse 4.7.2 Oxygen</p>
+<ul>
+<li>Follow the prompts, and set up a workspace directory for eclipse in your home (or sub-) directory</li>
+<li>Follow any recommended instructions concerning the Scala IDE plugin</li>
+<li>If you see a welcome screen, close it to reveal a Java perspective
+<ul>
+<li>If (instead) you see a Java EE perspective, open a Java perspective (click the Open Perspective button just to the left of the Java EE button and choose Java from the list), then close the Java EE perspective (right click on it and select Close)</li>
+</ul>
+</li>
+<li>Make sure Java SE 8 is the default execution environment: check this via Window &gt; Preferences &gt; Java &gt; Installed JREs
+<ul>
+<li>The JRE should be called java-8-openjdk-i386; if it is not there, add the JRE which should be located at <code>/usr/lib/jvm/java-8-openjdk-i386</code></li>
+</ul>
+</li>
+<li>Create a new Java project (via <strong>New</strong> &gt; <strong>Java Project</strong> or using the <strong>New</strong> button drop-down): choose the default JRE for the execution environment and specify <code>HelloWorld</code> as the Project Name.  Click on the <strong>Finish</strong> button.
+<ul>
+<li>Eclipse should be set up to automatically (re-)compile your projects when editing (check via the Project menu that Build Automatically is ticked): saves time!</li>
+</ul>
+</li>
+<li>In the Package Explorer (panel on the left), locate the HelloWorld project and click on it.  You should see a folder named <strong>src</strong>.  Right click on <strong>src</strong> folder and choose <strong>Import</strong>.  An Import Wizard is launched.  Choose <strong>General</strong> &gt; <strong>FileSystem</strong> and click on <strong>Next</strong>.  Click on <strong>Browse</strong>: locate the folder under which the file <code>HelloWorld.java</code> (from the previous task) was created and select the file HelloWorld.java.  Now, click on the Finish button.  This file has now been imported into the eclipse project.</li>
+<li>Run this programs in Eclipse via <strong>Run</strong> &gt; <strong>Run As …</strong> &gt; <strong>Java Application</strong> or hit the Play button after setting up a Run Configuration</li>
+<li>Look at the <strong>Console</strong> to see the output (or at the <strong>Problems</strong> tab for any bugs)</li>
+</ul>
+<h2 id="calculate-the-average-of-an-array-of-numbers-4-marks">3. Calculate the average of an array of numbers (4 marks)</h2>
+<p>A class is similar to a struct in the C language in that it stores related data in fields, where the fields can be different types.</p>
+<ol>
+<li>
+<p>Open the file <code>Average.java</code>. You will find a class named Average.</p>
+</li>
+<li>
+<p>This class defines a method <code>computeAverage()</code> that takes in an array of integers and returns the average of this numbers.  You are required to implement this method.<br>
+Hint:</p>
+<ul>
+<li>To complete this task, you need to compute the sum of the numbers and the total number of elements</li>
+<li>Use a <code>for</code> loop to traverse the list of numbers and compute the sum of the number.</li>
+<li>Use <code>nums.length</code> to get the length of the array, after the sum has been computed.</li>
+</ul>
+</li>
+<li>
+<p>Next, define a <code>main()</code> method.</p>
+<p>Note: Every Java application needs one class with a <code>main()</code> method. This class is the entry point for the Java application and is the class name passed to the <code>java</code>  command to run the application. The interpreter executes the code in the <code>main()</code> method when the program starts, and is the point from which all other classes and corresponding methods are invoked.</p>
+</li>
+<li>
+<p>Inside the <code>main()</code> method, initialise an array of integers inside the <code>main()</code> method and invoke the method <code>computeAverage()</code>, passing in the array of integers<br>
+Hint: <code>computeAverage()</code> is an instance method, hence you must create an instance of the class Average and invoke the method on this instance</p>
+</li>
+<li>
+<p>Assign the result of this method to a variable and print the variable</p>
+</li>
+</ol>
+<h1 id="show-your-tutor-and-finish">Show your tutor and finish</h1>
+<p>That’s it for the first lab, please show your tutor your work and get them to mark you off.</p>
+<h1 id="optional-exercises-for-bonus-1-mark">Optional Exercises for Bonus (1 mark)</h1>
+<p>Create a java program that reads from <code>System.in</code> a line consisting of words separated by a space and prints out the individual words in the string e.g.,</p>
+<p>If the input was: <code>The Mocking Jay</code><br>
+The output should display as:</p>
+<pre><code>The
+Mocking
+Jay
+</code></pre>
+<p><strong>Hint:</strong>  Use the string function ‘split’ to help you with this task</p>
+</div>
+
+
+
+</body></html>
